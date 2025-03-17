@@ -1,0 +1,36 @@
+<div data-tab="{{ block.id }}" class="tabs-headings">
+  <button class="tab-btn">{{ block.settings.tab_title }}</button>
+</div>
+<div id="tab-{{ block.id }}" class="tabs-content">
+  <div class="tab-content">
+    {% assign table = block.settings.tab_content %}
+    {% for data in table %}
+      {{ data.tab_tables | replace: 'u003c', '<' | replace: 'u003e', '>' }}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tab",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tab_title",
+      "label": "Tab Title",
+      "default": "Tab"
+    },
+    {
+      "type": "metaobject_list",
+      "metaobject_type": "table",
+      "id": "tab_content",
+      "label": "Tab Content"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab"
+    }
+  ]
+}
+{% endschema %}
