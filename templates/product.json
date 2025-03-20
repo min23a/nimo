@@ -63,11 +63,16 @@
             "icon": "check_mark",
             "content": "",
             "page": ""
-          }
-        },
-        "p_description_WAHJnA": {
-          "type": "p_description",
-          "settings": {}
+          },
+          "blocks": {
+            "p_description_PKcyBJ": {
+              "type": "p_description",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "p_description_PKcyBJ"
+          ]
         }
       },
       "block_order": [
@@ -79,8 +84,7 @@
         "p_inventory_PWi98c",
         "p_sku_hT8fiQ",
         "p_buy_btn_MdVepb",
-        "p_collapsible_tab_PTHR7X",
-        "p_description_WAHJnA"
+        "p_collapsible_tab_PTHR7X"
       ],
       "settings": {
         "enable_sticky_info": true,
