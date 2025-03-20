@@ -1,0 +1,43 @@
+{% if page.handle != 'calculator' %}
+  <link
+    rel="stylesheet"
+    href="{{ 'backtotop.css' | asset_url }}"
+    media="print"
+    onload="this.media='all'"
+  >
+
+  <script src="{{ 'backtotop.js' | asset_url }}" defer="defer"></script>
+  {% render 'Back-to-top' %}
+  {% comment %}
+    {% else %}
+      <link
+        rel="stylesheet"
+        href="{{ 'backtotop.css' | asset_url }}"
+        media="print"
+        onload="this.media='all'"
+      >
+
+
+
+      <style>
+        #backToTop{
+          background-color: #f0f0f0;
+        }
+      </style>
+
+      <script src="{{ 'backtotop.js' | asset_url }}" defer="defer"></script>
+      {% render 'Back-to-top' %}
+  {% endcomment %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Back to top",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Back to top"
+    }
+  ]
+}
+{% endschema %}
