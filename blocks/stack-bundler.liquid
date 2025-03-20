@@ -303,22 +303,20 @@ const config = {
       </bulk-add-to-cart>
     </div>
   {% endif %}
+  {% content_for 'blocks' %}
 </div>
-
-{% comment %}
-  for product page
-
-  {% comment %}Start of Bulk Add to Cart Component{% endcomment %}
-  {% when 'bulk-add-to-cart' %}
-  {% render 'bulk-add-to-cart-buttons' block: block %}
-  {% comment %}End of Bulk Add to Cart Component{% endcomment %}
-{% endcomment %}
-
-{% comment %} Schema for Block {% endcomment %}
 
 {% schema %}
 {
   "name": "bulk-add-to-cart-buttons",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
   "settings": [
     {
       "type": "header",
