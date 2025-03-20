@@ -58,6 +58,26 @@
             "show_gift_card_recipient": true
           }
         },
+        "stack_bundler_xE6CwT": {
+          "type": "stack-bundler",
+          "settings": {
+            "block-title-text": "Buy More, Save More!",
+            "block-title-color": "#121212",
+            "block-divider-color": "#121212",
+            "bulk-btn-one-text": "Buy 2 at 10% Off",
+            "bulk-btn-one-qty": 2,
+            "bulk-btn-one-txt-color": "#121212",
+            "bulk-btn-one-bg-color": "#fff",
+            "bulk-btn-two-text": "Buy 3 at 10% Off",
+            "bulk-btn-two-qty": 3,
+            "bulk-btn-two-txt-color": "#121212",
+            "bulk-btn-two-bg-color": "#fff",
+            "bulk-btn-three-text": "Buy 4 at 10% Off",
+            "bulk-btn-three-qty": 4,
+            "bulk-btn-three-txt-color": "#121212",
+            "bulk-btn-three-bg-color": "#fff"
+          }
+        },
         "p_collapsible_tab_PTHR7X": {
           "type": "p_collapsible_tab",
           "settings": {
@@ -86,6 +106,7 @@
         "p_inventory_PWi98c",
         "p_sku_hT8fiQ",
         "p_buy_btn_MdVepb",
+        "stack_bundler_xE6CwT",
         "p_collapsible_tab_PTHR7X"
       ],
       "settings": {
