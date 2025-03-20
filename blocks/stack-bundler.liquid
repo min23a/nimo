@@ -2,6 +2,13 @@
   Liquid Variables
 {% endcomment %}
 
+<link
+  rel="stylesheet"
+  href="{{ 'stack_bundler.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+
 {% liquid
   assign block_title_text = block.settings['block-title-text']
   assign block_title_color = block.settings['block-title-color']
@@ -22,8 +29,6 @@
   assign btn_three_text_color = block.settings['bulk-btn-three-txt-color']
   assign btn_three_bg_color = block.settings['bulk-btn-three-bg-color']
 %}
-
-<link rel="stylesheet" href="{{ 'stack_bundler.css' | asset_url }}">
 
 <template id="main-content">
   <div
