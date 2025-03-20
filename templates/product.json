@@ -48,6 +48,26 @@
           "settings": {
             "text_style": "body"
           }
+        },
+        "p_buy_btn_MdVepb": {
+          "type": "p_buy_btn",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "p_collapsible_tab_PTHR7X": {
+          "type": "p_collapsible_tab",
+          "settings": {
+            "heading": "Collapsible row",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
+        "p_description_WAHJnA": {
+          "type": "p_description",
+          "settings": {}
         }
       },
       "block_order": [
@@ -57,7 +77,10 @@
         "p_qty_selector_aQNqL6",
         "p_variant_picker_3QJhm9",
         "p_inventory_PWi98c",
-        "p_sku_hT8fiQ"
+        "p_sku_hT8fiQ",
+        "p_buy_btn_MdVepb",
+        "p_collapsible_tab_PTHR7X",
+        "p_description_WAHJnA"
       ],
       "settings": {
         "enable_sticky_info": true,
