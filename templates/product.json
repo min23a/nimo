@@ -30,6 +30,7 @@
         },
         "p_variant_picker_3QJhm9": {
           "type": "p_variant_picker",
+          "disabled": true,
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
@@ -45,6 +46,7 @@
         },
         "p_sku_hT8fiQ": {
           "type": "p_sku",
+          "disabled": true,
           "settings": {
             "text_style": "body"
           }
