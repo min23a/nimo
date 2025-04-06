@@ -66,7 +66,6 @@
 {% liquid
   assign block_title_text = block.settings['block-title-text']
   assign block_title_color = block.settings['block-title-color']
-  assign block_divider_color = block.settings['block-divider-color']
 
   assign btn_one_qty = block.settings['bulk-btn-one-qty']
   assign btn_one_text = block.settings['bulk-btn-one-text']
@@ -86,7 +85,7 @@
 
 <template id="main-content">
   <div
-    style="display: inline-flex; justify-content: center; align-items: center;"
+    {% comment %} style="display: inline-flex; justify-content: center; align-items: center;" {% endcomment %}
     class="bulk-add__error-message-wrapper error--hidden"
     role="alert"
   >
