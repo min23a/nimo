@@ -197,7 +197,7 @@ class BulkAddToCart extends HTMLElement {
     super();
 
     //Set up the Shadow DOM in the Web Component
-    const shadow = this.attachShadow({ mode: 'open' })
+    const shadow = this.attachShadow({ mode: 'closed' })
     this.shadowDom = shadow
 
     const template = document.getElementById('main-content').content.cloneNode(true)
