@@ -10,7 +10,7 @@
   margin-bottom: 40px;
   transition: box-shadow 0.3s ease;
   border-radius: 10px;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
   border: solid #000;
   border-right-width: 2px;
   border-left-width: 2px;
@@ -47,7 +47,7 @@
 }
 
 .timeline-content {
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 .timeline-content .timeline-title {
