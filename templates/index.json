@@ -223,6 +223,16 @@
     },
     "custom_section_EzYR73": {
       "type": "custom-section",
+      "blocks": {
+        "timeline_gHiR4c": {
+          "type": "timeline",
+          "settings": {},
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "timeline_gHiR4c"
+      ],
       "settings": {}
     }
   },
