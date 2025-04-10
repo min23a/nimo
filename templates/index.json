@@ -235,10 +235,19 @@
                 "description": "Timeline description goes here."
               },
               "blocks": {}
+            },
+            "timeline_block_wXCz6k": {
+              "type": "timeline-block",
+              "settings": {
+                "heading": "Timeline Heading",
+                "description": "Timeline description goes here."
+              },
+              "blocks": {}
             }
           },
           "block_order": [
-            "timeline_block_TMNxnM"
+            "timeline_block_TMNxnM",
+            "timeline_block_wXCz6k"
           ]
         }
       },
