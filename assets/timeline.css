@@ -11,6 +11,7 @@
 }
 
 .timeline-dot {
+  display: inline !important;
   position: absolute;
   top: 0;
   left: -9px;
