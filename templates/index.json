@@ -227,7 +227,19 @@
         "timeline_gHiR4c": {
           "type": "timeline",
           "settings": {},
-          "blocks": {}
+          "blocks": {
+            "timeline_block_TMNxnM": {
+              "type": "timeline-block",
+              "settings": {
+                "heading": "Timeline Heading",
+                "description": "Timeline description goes here."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "timeline_block_TMNxnM"
+          ]
         }
       },
       "block_order": [
