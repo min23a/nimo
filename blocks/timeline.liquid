@@ -1,0 +1,26 @@
+{% comment %}
+  This file is part of the Shopify theme.
+  It is used to create a timeline layout for displaying content in a structured manner.
+  The timeline consists of blocks that can be customized with different types of content.
+{% endcomment %}
+
+<link rel="stylesheet" href="{{ 'timeline.css' | asset_url }}">
+
+<div class="timeline-container">
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Timeline",
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+  "settings": [],
+
+  "presets": [
+    {
+      "name": "Timeline",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
