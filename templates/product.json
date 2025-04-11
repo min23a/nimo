@@ -87,6 +87,24 @@
           },
           "blocks": {}
         },
+        "timeline_8X7fPM": {
+          "type": "timeline",
+          "settings": {},
+          "blocks": {
+            "timeline_block_FNW4Up": {
+              "type": "timeline-block",
+              "settings": {
+                "heading": "Timeline Heading",
+                "year": "2023",
+                "description": "Timeline description goes here."
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "timeline_block_FNW4Up"
+          ]
+        },
         "p_collapsible_tab_PTHR7X": {
           "type": "p_collapsible_tab",
           "settings": {
@@ -117,6 +135,7 @@
         "p_sku_hT8fiQ",
         "p_buy_btn_MdVepb",
         "stack_bundler_xE6CwT",
+        "timeline_8X7fPM",
         "p_collapsible_tab_PTHR7X"
       ],
       "settings": {
