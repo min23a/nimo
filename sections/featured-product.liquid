@@ -94,7 +94,7 @@
           >
             {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
-            {% content_for 'blocks' %}
+            {% content_for 'blocks', product: product %}
 
             <a
               {% if product == blank %}
