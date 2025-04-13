@@ -113,6 +113,14 @@
           },
           "blocks": {}
         },
+        "p_buy_btn_4aB4TM": {
+          "type": "p_buy_btn",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          },
+          "blocks": {}
+        },
         "stack_bundler_h8tXEB": {
           "type": "stack-bundler",
           "settings": {
@@ -147,6 +155,7 @@
         "p_price_PeUiYL",
         "p_qty_selector_AegJDk",
         "p_variant_picker_7PTG6H",
+        "p_buy_btn_4aB4TM",
         "stack_bundler_h8tXEB",
         "p_share_Dx6gz8"
       ],
