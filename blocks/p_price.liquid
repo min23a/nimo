@@ -1,6 +1,6 @@
-{% assign product = section.settings.product %}
-
-{% if product == blank %}
+{% if template.handle == 'index' or template.handle == 'page' %}
+  {% assign product = section.settings.product %}
+{% else %}
   {% assign product = block.settings.product %}
 {% endif %}
 
