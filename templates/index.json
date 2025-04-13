@@ -90,56 +90,65 @@
     "featured_product_GfNEBf": {
       "type": "featured-product",
       "blocks": {
-        "text_8rLN8g": {
-          "type": "text",
+        "p_title_4wiakG": {
+          "type": "p_title",
+          "settings": {},
+          "blocks": {}
+        },
+        "p_price_PeUiYL": {
+          "type": "p_price",
+          "settings": {},
+          "blocks": {}
+        },
+        "p_qty_selector_AegJDk": {
+          "type": "p_qty_selector",
+          "settings": {},
+          "blocks": {}
+        },
+        "p_variant_picker_7PTG6H": {
+          "type": "p_variant_picker",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
+            "picker_type": "dropdown",
+            "swatch_shape": "square"
+          },
+          "blocks": {}
         },
-        "title_mixijj": {
-          "type": "title",
+        "stack_bundler_h8tXEB": {
+          "type": "stack-bundler",
           "settings": {
-            "heading_size": "h1"
-          }
+            "block-title-text": "Buy More, Save More!",
+            "block-title-color": "#121212",
+            "block-divider-color": "#121212",
+            "bulk-btn-one-text": "Buy 2 at 10% Off",
+            "bulk-btn-one-qty": 2,
+            "bulk-btn-one-txt-color": "#121212",
+            "bulk-btn-one-bg-color": "#fff",
+            "bulk-btn-two-text": "Buy 3 at 10% Off",
+            "bulk-btn-two-qty": 3,
+            "bulk-btn-two-txt-color": "#121212",
+            "bulk-btn-two-bg-color": "#fff",
+            "bulk-btn-three-text": "Buy 4 at 10% Off",
+            "bulk-btn-three-qty": 4,
+            "bulk-btn-three-txt-color": "#121212",
+            "bulk-btn-three-bg-color": "#fff"
+          },
+          "blocks": {}
         },
-        "price_3RpYxk": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_hm9WcM": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_6haWfb": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_mU4WaY": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_jdcbNF": {
-          "type": "share",
+        "p_share_Dx6gz8": {
+          "type": "p_share",
           "settings": {
             "share_label": "Share"
-          }
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "text_8rLN8g",
-        "title_mixijj",
-        "price_3RpYxk",
-        "variant_picker_hm9WcM",
-        "quantity_selector_6haWfb",
-        "buy_buttons_mU4WaY",
-        "share_jdcbNF"
+        "p_title_4wiakG",
+        "p_price_PeUiYL",
+        "p_qty_selector_AegJDk",
+        "p_variant_picker_7PTG6H",
+        "stack_bundler_h8tXEB",
+        "p_share_Dx6gz8"
       ],
       "settings": {
         "product": "agate-wall-art-canvas",
