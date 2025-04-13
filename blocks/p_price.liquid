@@ -1,4 +1,9 @@
 {% assign product = section.settings.product %}
+
+{% if product == blank %}
+  {% assign product = block.settings.product %}
+{% endif %}
+
 {%- assign cart = cart | default: '' -%}
 {%- assign shop = shop | default: '' -%}
 {%- assign section = section | default: '' -%}
