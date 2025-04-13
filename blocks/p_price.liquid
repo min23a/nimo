@@ -1,8 +1,3 @@
-{% if template.handle == 'index' or template.handle == 'page' %}
-  {% assign product = section.settings.product %}
-{% else %}
-  {% assign product = block.settings.product %}
-{% endif %}
 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
 </div>
