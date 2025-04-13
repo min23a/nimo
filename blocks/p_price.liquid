@@ -1,3 +1,20 @@
+{% assign product = section.settings.product %}
+{%- assign cart = cart | default: '' -%}
+{%- assign shop = shop | default: '' -%}
+{%- assign section = section | default: '' -%}
+{%- assign block = block | default: '' -%}
+
+{%- if product == blank -%}
+  {%- assign product = all_products[block.settings.product] -%}
+{%- endif -%}
+
+{%- if product == blank -%}
+  {%- assign product = all_products[block.settings.product_handle] -%}
+{%- endif -%}
+
+{%- if product == blank -%}
+  {%- assign product = all_products[block.settings.product_id] -%}
+{%- endif -%}
 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
 </div>
