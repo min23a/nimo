@@ -1,3 +1,12 @@
+{% if request.page_type == 'index' or request.page_type == 'page' %}
+  {% assign product = section.settings.product %}
+{% endif %}
+
+<script>
+  const x = {{template.name}};
+  console.log(x);
+</script>
+
 <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
   {%- render 'price', product: product, use_variant: true, show_badges: true, price_class: 'price--large' -%}
 </div>
