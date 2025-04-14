@@ -1,6 +1,7 @@
 {% if template.name == 'index' or template.name == 'page' %}
   {% assign product = section.settings.product %}
 {% endif %}
+
 {%- assign product_form_id = 'product-form-' | append: section.id -%}
 
 {%- render 'buy-buttons',
