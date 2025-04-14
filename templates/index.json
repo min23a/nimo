@@ -109,19 +109,6 @@
           },
           "blocks": {}
         },
-        "p_qty_selector_AegJDk": {
-          "type": "p_qty_selector",
-          "settings": {},
-          "blocks": {}
-        },
-        "p_variant_picker_7PTG6H": {
-          "type": "p_variant_picker",
-          "settings": {
-            "picker_type": "dropdown",
-            "swatch_shape": "square"
-          },
-          "blocks": {}
-        },
         "stack_bundler_h8tXEB": {
           "type": "stack-bundler",
           "settings": {
@@ -140,6 +127,19 @@
             "bulk-btn-three-qty": 4,
             "bulk-btn-three-txt-color": "#121212",
             "bulk-btn-three-bg-color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "p_qty_selector_AegJDk": {
+          "type": "p_qty_selector",
+          "settings": {},
+          "blocks": {}
+        },
+        "p_variant_picker_7PTG6H": {
+          "type": "p_variant_picker",
+          "settings": {
+            "picker_type": "dropdown",
+            "swatch_shape": "square"
           },
           "blocks": {}
         },
@@ -163,9 +163,9 @@
         "p_title_4wiakG",
         "p_price_PeUiYL",
         "p_inventory_acna4p",
+        "stack_bundler_h8tXEB",
         "p_qty_selector_AegJDk",
         "p_variant_picker_7PTG6H",
-        "stack_bundler_h8tXEB",
         "p_buy_btn_xRcxcU",
         "p_share_Dx6gz8"
       ],
