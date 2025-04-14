@@ -45,11 +45,6 @@
   <script src="{{ 'show-more.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'price-per-item.js' | asset_url }}" defer="defer"></script>
 
-  <script>
-    const x = {{-template.name-}};
-    console.log(x);
-  </script>
-
   {% comment %} TODO: assign `product.selected_or_first_available_variant` to variable and replace usage to reduce verbosity {% endcomment %}
 
   {%- assign first_3d_model = product.media | where: 'media_type', 'model' | first -%}
