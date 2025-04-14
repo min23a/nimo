@@ -100,6 +100,15 @@
           "settings": {},
           "blocks": {}
         },
+        "p_inventory_acna4p": {
+          "type": "p_inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          },
+          "blocks": {}
+        },
         "p_qty_selector_AegJDk": {
           "type": "p_qty_selector",
           "settings": {},
@@ -113,14 +122,6 @@
           },
           "blocks": {}
         },
-        "p_buy_btn_4aB4TM": {
-          "type": "p_buy_btn",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          },
-          "blocks": {}
-        },
         "stack_bundler_h8tXEB": {
           "type": "stack-bundler",
           "settings": {
@@ -130,15 +131,23 @@
             "bulk-btn-one-text": "Buy 2 at 10% Off",
             "bulk-btn-one-qty": 2,
             "bulk-btn-one-txt-color": "#121212",
-            "bulk-btn-one-bg-color": "#fff",
+            "bulk-btn-one-bg-color": "#ffffff",
             "bulk-btn-two-text": "Buy 3 at 10% Off",
             "bulk-btn-two-qty": 3,
             "bulk-btn-two-txt-color": "#121212",
-            "bulk-btn-two-bg-color": "#fff",
+            "bulk-btn-two-bg-color": "#ffffff",
             "bulk-btn-three-text": "Buy 4 at 10% Off",
             "bulk-btn-three-qty": 4,
             "bulk-btn-three-txt-color": "#121212",
-            "bulk-btn-three-bg-color": "#fff"
+            "bulk-btn-three-bg-color": "#ffffff"
+          },
+          "blocks": {}
+        },
+        "p_buy_btn_4aB4TM": {
+          "type": "p_buy_btn",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
           },
           "blocks": {}
         },
@@ -153,10 +162,11 @@
       "block_order": [
         "p_title_4wiakG",
         "p_price_PeUiYL",
+        "p_inventory_acna4p",
         "p_qty_selector_AegJDk",
         "p_variant_picker_7PTG6H",
-        "p_buy_btn_4aB4TM",
         "stack_bundler_h8tXEB",
+        "p_buy_btn_4aB4TM",
         "p_share_Dx6gz8"
       ],
       "settings": {
