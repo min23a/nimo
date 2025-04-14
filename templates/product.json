@@ -27,19 +27,6 @@
           "settings": {},
           "blocks": {}
         },
-        "p_qty_selector_aQNqL6": {
-          "type": "p_qty_selector",
-          "settings": {},
-          "blocks": {}
-        },
-        "p_variant_picker_3QJhm9": {
-          "type": "p_variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          },
-          "blocks": {}
-        },
         "p_inventory_PWi98c": {
           "type": "p_inventory",
           "settings": {
@@ -70,6 +57,19 @@
           },
           "blocks": {}
         },
+        "p_qty_selector_aQNqL6": {
+          "type": "p_qty_selector",
+          "settings": {},
+          "blocks": {}
+        },
+        "p_variant_picker_3QJhm9": {
+          "type": "p_variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          },
+          "blocks": {}
+        },
         "p_buy_btn_MdVepb": {
           "type": "p_buy_btn",
           "settings": {
@@ -90,29 +90,20 @@
                 "description": "Timeline description goes here."
               },
               "blocks": {}
-            }
-          },
-          "block_order": [
-            "timeline_block_FNW4Up"
-          ]
-        },
-        "p_collapsible_tab_PTHR7X": {
-          "type": "p_collapsible_tab",
-          "settings": {
-            "heading": "Collapsible row",
-            "icon": "check_mark",
-            "content": "",
-            "page": ""
-          },
-          "blocks": {
-            "p_description_PKcyBJ": {
-              "type": "p_description",
-              "settings": {},
+            },
+            "timeline_block_NBncbr": {
+              "type": "timeline-block",
+              "settings": {
+                "heading": "Timeline Heading",
+                "year": "2023",
+                "description": "Timeline description goes here."
+              },
               "blocks": {}
             }
           },
           "block_order": [
-            "p_description_PKcyBJ"
+            "timeline_block_FNW4Up",
+            "timeline_block_NBncbr"
           ]
         }
       },
@@ -120,13 +111,12 @@
         "p_title_bWbNxK",
         "p_rating_QGWaYT",
         "p_price_DYqNNT",
-        "p_qty_selector_aQNqL6",
-        "p_variant_picker_3QJhm9",
         "p_inventory_PWi98c",
         "stack_bundler_xE6CwT",
+        "p_qty_selector_aQNqL6",
+        "p_variant_picker_3QJhm9",
         "p_buy_btn_MdVepb",
-        "timeline_8X7fPM",
-        "p_collapsible_tab_PTHR7X"
+        "timeline_8X7fPM"
       ],
       "settings": {
         "enable_sticky_info": true,
