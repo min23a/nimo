@@ -60,6 +60,11 @@
 </style>
 
 {% liquid
+  if page.handle == 'index'
+    assign product = section.settings.product
+  else
+    assign product = product
+  endif
   assign block_title_text = block.settings['block-title-text']
   assign block_title_color = block.settings['block-title-color']
 
@@ -185,6 +190,7 @@
 </div>
 
 <script>
+  console.log("{{product}}")
 
 //Store current inventory from liquid inside of Javascript Object
 const inventoryObj = {}
