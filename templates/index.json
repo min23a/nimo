@@ -119,11 +119,11 @@
             "bulk-btn-one-qty": 2,
             "bulk-btn-one-txt-color": "#121212",
             "bulk-btn-one-bg-color": "#ffffff",
-            "bulk-btn-two-text": "Buy 3 at 10% Off",
+            "bulk-btn-two-text": "Buy 3 at 12% Off",
             "bulk-btn-two-qty": 3,
             "bulk-btn-two-txt-color": "#121212",
             "bulk-btn-two-bg-color": "#ffffff",
-            "bulk-btn-three-text": "Buy 4 at 10% Off",
+            "bulk-btn-three-text": "Buy 4 at 15% Off",
             "bulk-btn-three-qty": 4,
             "bulk-btn-three-txt-color": "#121212",
             "bulk-btn-three-bg-color": "#ffffff"
