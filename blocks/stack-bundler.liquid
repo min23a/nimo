@@ -190,7 +190,6 @@
 </div>
 
 <script>
-  console.log("{{product}}")
 
 //Store current inventory from liquid inside of Javascript Object
 const inventoryObj = {}
@@ -268,7 +267,6 @@ class BulkAddToCart extends HTMLElement {
 
       })
       .catch(err => {
-        console.log("Cart Icon Bubble", cartIconBubble);
         console.error(`There was an issue bulk adding to cart \n\n Error Message: ${err}`)
         const errorMsg = this.shadowDom.querySelector(".bulk-add__error-message-wrapper")
         errorMsg.classList.toggle("error--hidden")
