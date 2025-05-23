@@ -60,7 +60,7 @@
 </style>
 
 {% liquid
-  if page.handle == 'index'
+  if template.name == 'index'
     assign product = section.settings.product
   else
     assign product = product
