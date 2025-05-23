@@ -240,7 +240,6 @@ class BulkAddToCart extends HTMLElement {
         const cartNotificationProduct = new DOMParser().parseFromString(sections["cart-notification-product"],'text/html')
 
         console.log("Cart Notification Product Before",cartNotificationProduct)
-        console.log("Cart Icon Bubble", cartIconBubble);
 
         //Update Oringinal DOM
         document.querySelector("#cart-icon-bubble").innerHTML = cartIconBubble.querySelector("#shopify-section-cart-icon-bubble").innerHTML
@@ -263,6 +262,7 @@ class BulkAddToCart extends HTMLElement {
 
       })
       .catch(err => {
+        console.log("Cart Icon Bubble", cartIconBubble);
         console.error(`There was an issue bulk adding to cart \n\n Error Message: ${err}`)
         const errorMsg = this.shadowDom.querySelector(".bulk-add__error-message-wrapper")
         errorMsg.classList.toggle("error--hidden")
