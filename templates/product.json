@@ -38,7 +38,6 @@
         },
         "stack_bundler_xE6CwT": {
           "type": "stack-bundler",
-          "disabled": true,
           "settings": {
             "block-title-text": "Buy More, Save More!",
             "block-title-color": "#121212",
