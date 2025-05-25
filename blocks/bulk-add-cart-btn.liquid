@@ -7,9 +7,11 @@
 
 {% if text and quantity > 1 %}
   <style>
+    .blk_crt_btn{
+    width: 100%;
+    }
         bulk-add-to-cart-button {
             display: inline-block;
-            width: 100%;
             margin: 1rem 0;
             padding: 1rem 2rem;
             color: {{ button_color }};
@@ -36,6 +38,7 @@
 {% schema %}
 {
   "name": "Bulk Add to Cart Button",
+  "class": "blk_crt_btn",
   "settings": [
     {
       "type": "header",
