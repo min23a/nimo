@@ -172,14 +172,14 @@
             this.bulkaddtocart(this.productId, this.quantity);
           }
         });
+      }
 
-        attributeChangedCallback(name, oldValue, newValue) {
+      attributeChangedCallback(name, oldValue, newValue) {
           if (name === 'product-id') {
             this.productId = newValue;
             this.setButtonState();
           }
         };
-      }
 
       customElements.define('bulk-add-to-cart-button', BulkAddToCartButton);
 
