@@ -6,6 +6,21 @@
 %}
 
 {% if text and quantity > 1 %}
+  <style>
+        bulk-add-to-cart-button {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 1rem 2rem;
+            color: {{ button_color }};
+            background-color: {{ button_bg_color }};
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 1px solid {{ button_color }};
+    }
+  </style>
+
   <div>
     <bulk-add-to-cart-button
       bg-color="{{ button_bg_color }}"

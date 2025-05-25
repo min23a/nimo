@@ -4,6 +4,20 @@
   assign block_title_color = block.settings['block-title-color']
 %}
 
+<style>
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  .content-container p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+</style>
+
 <div class="content-container">
   {% if block_title %}
     <p
