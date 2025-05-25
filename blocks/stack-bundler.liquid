@@ -144,9 +144,9 @@
     }
 
     connectedCallback() {
-        this.product_id = this.getAttribute('product-id');
-        this.quantity = this.getAttribute("quantity-to-add");
-        this.bgColor = this.getAttribute('bg-color');
+        const product_id = this.getAttribute('product-id');
+        const quantity = this.getAttribute("quantity-to-add");
+        const bgColor = this.getAttribute('bg-color');
 
         this.productId = product_id ? product_id : null
         this.quantity = quantity ? quantity: null
