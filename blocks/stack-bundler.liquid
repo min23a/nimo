@@ -126,7 +126,7 @@
       const variantStockCount = this.amountInStock[this.productId]
       const enoughToAddToCart = variantStockCount >= this.quantity ? true : false
 
-      const bulkBtn = this.querySelector(".bulk_btn")
+      const bulkBtn = this.document.querySelector(".bulk_btn")
 
       if(!enoughToAddToCart){
           console.log("Render Out of Stock State")
