@@ -32,27 +32,182 @@
 </div>
 
 <script>
-  class BulkAddToCartButton extends HTMLElement {
-    constructor() {
-      super();
+  const inventoryObj = {}
+  {% for v in product.variants %}
+      inventoryObj[{{ v.id }}] = {{ v.inventory_quantity }}
+  {% endfor %}
+
+    class BulkAddToCartButton extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      static get observedAttributes() { return ['product-id', 'quantity-to-add']; }
+
+      bulkaddtocart(variantId,quantity){
+        const url = window.Shopify.routes.root + 'cart/add.js';
+        const cartData = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+        const productData = {
+          items: [{
+            id: variantId,
+            quantity: quantity
+          }],
+          sections: cart.getSectionsTorender().map((section) => section.id),
+          section_url: window.location.pathname
+        }
+
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(productData)
+        })
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Network response was not ok');
+          }
+        })
+        .then(data => {
+          const sections = data.sections || [];
+
+          const cartIconBubble = new DOMParser().parseFromString(sections['cart-icon-bubble'], 'text/html');
+          const cartNotification = new DOMParser().parseFromString(sections['cart-notification-button'], 'text/html');
+          const cartNotificationProduct = new DOMParser().parseFromString(sections['cart-notification-product'], 'text/html');
+
+          console.log("cart notification product before", cartNotificationProduct);
+
+          document.querySelector('#cart-icon-bubble').innerHTML = cartIconBubble.querySelector('#shopify-section-cart-icon-bubble').innerHTML;
+
+          document.querySelector('#cart-notification-button').innerHTML = cartNotification.querySelector('#shopify-section-cart-notification-button').innerHTML;
+
+          const found = this.findProductElementByVarientId(cartNotificationProduct, variantId);
+          document.querySelector('#cart-notification-product').innerHTML = found ? found.innerHTML : '';
+
+
+          console.log('Product added to cart:', data);
+
+          cartData.open()
+        })
+        .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+        });
+      }
+
+      getSectionsInnerHTML(html, selector = '.shopify-section') {
+        return new DOMParser().parseFromString(html, 'text/html').querySelectorAll(selector).innerHTML;
+      }
+
+      findProductElementByVarientId(cartNotificationProduct, variantId) {
+        const parentElement = htmlString.getElementById('shopify-section-cart-notification-product');
+
+        if(!parentElement) {
+          return null;
+        }
+
+        if (parentElement.children.length === 1) {
+          return parentElement.children[0];
+        }
+
+        for ( const child of parentElement.children) {
+          const childIdParts = child.id.split('-');
+          if(childIdParts.length > 1 && childIdParts[0].includes(variantId)) {
+            return child;
+          }
+        }
+        return null;
+      }
+
+      setButtonState(){
+      if(!this.amountInStock || !this.productId) return
+
+      const variantStockCount = this.amountInStock[this.productId]
+      const enoughToAddToCart = variantStockCount >= this.quantity ? true : false
+
+      const bulkBtn = this.querySelector(".bulk_btn")
+
+      if(!enoughToAddToCart){
+          console.log("Render Out of Stock State")
+
+          bulkBtn.style.opacity = "0.5"
+          bulkBtn.style.cursor = "not-allowed"
+          bulkBtn.style.pointerEvents = "none"
+          return
+      }
+
+      bulkBtn.style.opacity = "1"
+      bulkBtn.style.cursor = "pointer"
+      bulkBtn.style.pointerEvents = "auto"
+
     }
 
     connectedCallback() {
-      const bgColor = this.getAttribute('bg-color');
-      const productId = this.getAttribute('product-id');
-      const quantityToAdd = this.getAttribute('quantity-to-add');
+        this.product_id = this.getAttribute('product-id');
+        this.quantity = this.getAttribute("quantity-to-add");
+        this.bgColor = this.getAttribute('bg-color');
 
-      this.shadowRoot.innerHTML = `
-            <button style="background-color: ${bgColor};">
-                <slot name="btn_text"></slot>
-            </button>
-            `;
+        this.productId = product_id ? product_id : null
+        this.quantity = quantity ? quantity: null
+        this.amountInStock = inventoryObj ? inventoryObj : null
 
-      this.shadowRoot.querySelector('button').addEventListener('click', () => {
-        // Logic to add the product to the cart
-        console.log(`Adding product ${productId} with quantity ${quantityToAdd} to cart.`);
+        if (this.buttonText) {
+          this.buttonText.style.backgroundColor = this.bgColor;
+        }
+
+        this.addEventListener('click', () => {
+          if (this.productId && this.quantity > 0) {
+            this.bulkaddtocart(this.productId, this.quantity);
+          }
+        });
+
+        this.setButtonState();
+
+        const bulkBtn = this.querySelector(".bulk_btn");
+        bulkBtn.style.backgroundColor = this.bgColor;
+
+        bulkBtn.addEventListener('click', () => {
+          if (this.productId && this.quantity > 0) {
+            this.bulkaddtocart(this.productId, this.quantity);
+          }
+        });
+
+        attributeChangedCallback(name, oldValue, newValue) {
+          if (name === 'product-id') {
+            this.productId = newValue;
+            this.setButtonState();
+          }
+        };
+      }
+
+      customElements.define('bulk-add-to-cart-button', BulkAddToCartButton);
+
+      const target = document.querySelector('.product.grid');
+      const config = {
+        childList: true,
+        subtree: true
+      }
+
+      const observer = new MutationObserver(() => {
+        const bulkAddComponents = Array.from(document.querySelectorAll('bulk-add-to-cart-button'));
+        const currentUrl = window.location.href;
+        const hasQueryParams = currentUrl.includes('?varianr=');
+
+        if(!bulkAddComponents || bulkAddComponents.length < 1) return;
+        if (!hasQueryParams) return;
+
+        const getVarientfromUrl = () => new URLSearchParams(window.location.search).get('variant');
+
+        const productVariantId = getVarientfromUrl();
+
+        bulkAddComponents.forEach((component) => {
+            component.setAttribute('product-id', productVariantId);
+        });
       });
-    }
+
+      observer.observe(target, config);
+
   }
 </script>
 

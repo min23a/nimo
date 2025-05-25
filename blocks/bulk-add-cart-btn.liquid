@@ -30,6 +30,7 @@
       bg-color="{{ button_bg_color }}"
       product-id="{{ product.selected_or_first_available_variant.id }}"
       quantity-to-add="{{ quantity }}"
+      class="bulk_btn"
     >
       <span style="color: {{ button_color }}; background: {{button_bg_color}};" slot="btn_text">{{ text }}</span>
     </bulk-add-to-cart-button>
