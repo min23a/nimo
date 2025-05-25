@@ -47,8 +47,6 @@
       bulkaddtocart(variantId,quantity){
         const url = window.Shopify.routes.root + 'cart/add.js';
         const cartData = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-
-    console.log("Cart Notification Element", cartData);
         const productData = {
           items: [{
             id: variantId,
@@ -79,8 +77,6 @@
           const cartNotification = new DOMParser().parseFromString(sections['cart-notification-button'], 'text/html');
           const cartNotificationProduct = new DOMParser().parseFromString(sections['cart-notification-product'], 'text/html');
 
-          console.log("cart notification product before", cartNotificationProduct);
-
           document.querySelector('#cart-icon-bubble').innerHTML = cartIconBubble.querySelector('#shopify-section-cart-icon-bubble').innerHTML;
 
           document.querySelector('#cart-notification-button').innerHTML = cartNotification.querySelector('#shopify-section-cart-notification-button').innerHTML;
@@ -103,7 +99,7 @@
       }
 
       findProductElementByVarientId(cartNotificationProduct, variantId) {
-        const parentElement = htmlString.getElementById('shopify-section-cart-notification-product');
+        const parentElement = cartNotificationProduct.getElementById('shopify-section-cart-notification-product');
 
         if(!parentElement) {
           return null;
