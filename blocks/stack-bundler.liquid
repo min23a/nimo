@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
   }
   .content-container p {
     font-size: 1.2rem;
@@ -31,6 +30,31 @@
 
   {% content_for 'blocks' %}
 </div>
+
+<script>
+  class BulkAddToCartButton extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      const bgColor = this.getAttribute('bg-color');
+      const productId = this.getAttribute('product-id');
+      const quantityToAdd = this.getAttribute('quantity-to-add');
+
+      this.shadowRoot.innerHTML = `
+            <button style="background-color: ${bgColor};">
+                <slot name="btn_text"></slot>
+            </button>
+            `;
+
+      this.shadowRoot.querySelector('button').addEventListener('click', () => {
+        // Logic to add the product to the cart
+        console.log(`Adding product ${productId} with quantity ${quantityToAdd} to cart.`);
+      });
+    }
+  }
+</script>
 
 {% schema %}
 {
