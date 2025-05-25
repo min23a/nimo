@@ -46,13 +46,15 @@
 
       bulkaddtocart(variantId,quantity){
         const url = window.Shopify.routes.root + 'cart/add.js';
-        const cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+        const cartData = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+
+    console.log("Cart Notification Element", cartData);
         const productData = {
           items: [{
             id: variantId,
             quantity: quantity
           }],
-          sections: cart.getSectionsTorender().map((section) => section.id),
+          sections: cartData.getSectionsTorender().map((section) => section.id),
           section_url: window.location.pathname
         }
 
