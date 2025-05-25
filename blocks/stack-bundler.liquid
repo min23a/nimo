@@ -84,9 +84,6 @@
           const found = this.findProductElementByVarientId(cartNotificationProduct, variantId);
           document.querySelector('#cart-notification-product').innerHTML = found ? found.innerHTML : '';
 
-
-          console.log('Product added to cart:', data);
-
           cartData.open()
         })
         .catch(error => {
