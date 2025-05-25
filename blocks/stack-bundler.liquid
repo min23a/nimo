@@ -1,0 +1,50 @@
+{% liquid
+  assign product = product
+  assign block_title = block.settings['block-title-text']
+  assign block_title_color = block.settings['block-title-color']
+%}
+
+<div class="content-container">
+  {% if block_title %}
+    <p
+      {% if block_title_color %}
+        style="color : {{block_title_color}};"
+      {% endif %}
+    >
+      {{ block_title }}
+    </p>
+  {% endif %}
+
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Stack Bundler",
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Main block Settings"
+    },
+    {
+      "type": "text",
+      "id": "block-title-text",
+      "label": "Block Tile Text",
+      "default": "Buy More, Save More!!!"
+    },
+    {
+      "type": "color",
+      "id": "block-title-color",
+      "label": "Block Title Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "block-divider-color",
+      "label": "Block Divider Color",
+      "default": "#121212"
+    }
+  ]
+}
+{% endschema %}

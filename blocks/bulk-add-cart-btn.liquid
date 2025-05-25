@@ -1,0 +1,54 @@
+{% liquid
+  assign text = block.settings['bulk-btn-text']
+  assign quantity = block.settings['bulk-btn-quantity']
+  assign button_color = block.settings['bulk-button-color']
+  assign button_bg_color = block.settings['bulk-btn-bg-color']
+%}
+
+{% if text and quantity > 1 %}
+  <div>
+    <bulk-add-to-cart-button
+      bg-color="{{ button_bg_color }}"
+      product-id="{{ product.selected_or_first_available_variant.id }}"
+      quantity-to-add="{{ quantity }}"
+    >
+      <span style="color: {{ button_color }}; background: {{button_bg_color}};" slot="btn_text">{{ text }}</span>
+    </bulk-add-to-cart-button>
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Bulk Add to Cart Button",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bulk Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "bulk-btn-text",
+      "label": "Button Text",
+      "default": "Buy 2, Get 10% Off"
+    },
+    {
+      "type": "number",
+      "id": "bulk-btn-quantity",
+      "label": "Button Quantity",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "bulk-button-color",
+      "label": "Bulk Button Color",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "bulk-btn-bg-color",
+      "label": "Bulk Button Background Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}
