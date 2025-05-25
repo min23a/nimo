@@ -1,5 +1,9 @@
 {% liquid
-  assign product = product
+  if template.name == 'index'
+    assign product = section.settings.product
+  else
+    assign product = product
+  endif
   assign block_title = block.settings['block-title-text']
   assign block_title_color = block.settings['block-title-color']
 %}
