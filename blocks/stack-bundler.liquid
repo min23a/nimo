@@ -180,9 +180,8 @@
             this.setButtonState();
           }
         };
-
-
-      customElements.define('bulk-add-to-cart-button', BulkAddToCartButton);
+  }
+  customElements.define('bulk-add-to-cart-button', BulkAddToCartButton);
 
       const target = document.querySelector('.product.grid');
       const config = {
@@ -208,8 +207,6 @@
       });
 
       observer.observe(target, config);
-
-  }
 </script>
 
 {% schema %}
