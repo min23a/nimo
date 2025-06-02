@@ -1,4 +1,5 @@
 {% liquid
+  assign product = product | default: section.settings.product
   assign text = block.settings['bulk-btn-text']
   assign quantity = block.settings['bulk-btn-quantity']
   assign button_color = block.settings['bulk-button-color']
