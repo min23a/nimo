@@ -115,21 +115,48 @@
           "settings": {
             "block-title-text": "Buy More, Save More!",
             "block-title-color": "#121212",
-            "block-divider-color": "#121212",
-            "bulk-btn-one-text": "Buy 2 at 10% Off",
-            "bulk-btn-one-qty": 2,
-            "bulk-btn-one-txt-color": "#121212",
-            "bulk-btn-one-bg-color": "#ffffff",
-            "bulk-btn-two-text": "Buy 3 at 12% Off",
-            "bulk-btn-two-qty": 3,
-            "bulk-btn-two-txt-color": "#121212",
-            "bulk-btn-two-bg-color": "#ffffff",
-            "bulk-btn-three-text": "Buy 4 at 15% Off",
-            "bulk-btn-three-qty": 4,
-            "bulk-btn-three-txt-color": "#121212",
-            "bulk-btn-three-bg-color": "#ffffff"
+            "block-divider-color": "#121212"
           },
-          "blocks": {}
+          "blocks": {
+            "bulk_add_cart_btn_Dh9xeh": {
+              "type": "bulk-add-cart-btn",
+              "name": "Bulk Add to Cart Button",
+              "settings": {
+                "bulk-btn-text": "Buy 2, Get 10% Off",
+                "bulk-btn-quantity": 2,
+                "bulk-button-color": "#121212",
+                "bulk-btn-bg-color": "#ffffff"
+              },
+              "blocks": {}
+            },
+            "bulk_add_cart_btn_iRn4PU": {
+              "type": "bulk-add-cart-btn",
+              "name": "Bulk Add to Cart Button",
+              "settings": {
+                "bulk-btn-text": "Buy 3, Get 12% Off",
+                "bulk-btn-quantity": 3,
+                "bulk-button-color": "#121212",
+                "bulk-btn-bg-color": "#ffffff"
+              },
+              "blocks": {}
+            },
+            "bulk_add_cart_btn_9HWzNT": {
+              "type": "bulk-add-cart-btn",
+              "name": "Bulk Add to Cart Button",
+              "settings": {
+                "bulk-btn-text": "Buy 4, Get 15% Off",
+                "bulk-btn-quantity": 4,
+                "bulk-button-color": "#121212",
+                "bulk-btn-bg-color": "#ffffff"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "bulk_add_cart_btn_Dh9xeh",
+            "bulk_add_cart_btn_iRn4PU",
+            "bulk_add_cart_btn_9HWzNT"
+          ]
         },
         "p_qty_selector_AegJDk": {
           "type": "p_qty_selector",
