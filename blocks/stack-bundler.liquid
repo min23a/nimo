@@ -1,9 +1,5 @@
 {% liquid
-  if template.name == 'index'
-    assign product = section.settings.product
-  else
-    assign product = product
-  endif
+  assign product = product | default: section.settings.product
   assign block_title = block.settings['block-title-text']
   assign block_title_color = block.settings['block-title-color']
 %}
@@ -40,6 +36,8 @@
   {% for v in product.variants %}
       inventoryObj[{{ v.id }}] = {{ v.inventory_quantity }}
   {% endfor %}
+
+  console.log(inventoryObj);
 
     class BulkAddToCartButton extends HTMLElement {
       constructor() {
