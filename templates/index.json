@@ -284,13 +284,33 @@
             "question_text": "Question 1",
             "question_font_size": 18,
             "option_1": "Option 1",
-            "products_option_1": [],
+            "products_option_1": [
+              "agate-wall-art-canvas",
+              "akbar-the-great-tomb-wall-art-canvas",
+              "al-khazneh-wall-art-canvas",
+              "alhambra-palace-wall-art-canvas"
+            ],
             "option_2": "Option 2",
-            "products_option_2": [],
+            "products_option_2": [
+              "akbar-the-great-tomb-wall-art-canvas",
+              "al-khazneh-wall-art-canvas",
+              "alhambra-palace-wall-art-canvas",
+              "alhambra-palace-columns-wall-art-canvas"
+            ],
             "option_3": "Option 3",
-            "products_option_3": [],
+            "products_option_3": [
+              "al-khazneh-wall-art-canvas",
+              "alhambra-palace-wall-art-canvas",
+              "alhambra-palace-columns-wall-art-canvas",
+              "alhambra-palace-hall-of-lions-wall-art-canvas"
+            ],
             "option_4": "Option 4",
-            "products_option_4": []
+            "products_option_4": [
+              "alhambra-palace-wall-art-canvas",
+              "alhambra-palace-columns-wall-art-canvas",
+              "alhambra-palace-hall-of-lions-wall-art-canvas",
+              "alhambra-palace-ornate-ceiling-wall-art-canvas"
+            ]
           },
           "blocks": {}
         },
@@ -301,13 +321,27 @@
             "question_text": "Question 2",
             "question_font_size": 18,
             "option_1": "Option 1",
-            "products_option_1": [],
+            "products_option_1": [
+              "alhambra-palace-columns-wall-art-canvas",
+              "alhambra-palace-hall-of-lions-wall-art-canvas",
+              "alhambra-palace-ornate-ceiling-wall-art-canvas"
+            ],
             "option_2": "Option 2",
-            "products_option_2": [],
+            "products_option_2": [
+              "alif-arabic-alphabet-letter-wall-art-canvas",
+              "allah-in-arabic-calligraphy-on-beige-background-islamic-wall-art-canvas",
+              "allah-in-arabic-calligraphy-on-pink-splash-islamic-wall-art-canvas"
+            ],
             "option_3": "Option 3",
-            "products_option_3": [],
+            "products_option_3": [
+              "banana-leaves-wall-art-canvas",
+              "bahia-palace-courtyard-islamic-wall-art-canvas",
+              "allah-on-greige-islamic-star-islamic-wall-art-canvas"
+            ],
             "option_4": "Option 4",
-            "products_option_4": []
+            "products_option_4": [
+              "alhambra-palace-columns-wall-art-canvas"
+            ]
           },
           "blocks": {}
         },
@@ -318,13 +352,35 @@
             "question_text": "Question 3",
             "question_font_size": 18,
             "option_1": "Option 1",
-            "products_option_1": [],
+            "products_option_1": [
+              "beach-palm-trees-wall-art-canvas",
+              "beach-sunset-wall-art-canvas",
+              "ben-youssef-madrasa-islamic-wall-art-canvas"
+            ],
             "option_2": "Option 2",
-            "products_option_2": [],
+            "products_option_2": [
+              "ben-youssef-madrasa-door-islamic-wall-art-canvas",
+              "ben-youssef-madrasa-courtyard-wall-islamic-wall-art-canvas",
+              "bohemian-river-wall-art-canvas",
+              "blooming-rose-wall-art-canvas",
+              "cala-di-furore-bridge-wall-art-canvas",
+              "brown-wooden-carved-door-islamic-wall-art-canvas",
+              "bou-inania-madrasa-courtyard-islamic-wall-art-canvas",
+              "city-palace-golden-door-wall-art-canvas"
+            ],
             "option_3": "Option 3",
-            "products_option_3": [],
+            "products_option_3": [
+              "bahia-palace-courtyard-islamic-wall-art-canvas",
+              "allah-in-arabic-calligraphy-on-pink-splash-islamic-wall-art-canvas",
+              "alif-arabic-alphabet-letter-wall-art-canvas"
+            ],
             "option_4": "Option 4",
-            "products_option_4": []
+            "products_option_4": [
+              "al-khazneh-wall-art-canvas",
+              "alhambra-palace-columns-wall-art-canvas",
+              "alhambra-palace-ornate-ceiling-wall-art-canvas",
+              "banana-leaves-wall-art-canvas"
+            ]
           },
           "blocks": {}
         }
