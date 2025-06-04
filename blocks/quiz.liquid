@@ -1,4 +1,7 @@
-<div class="quiz-block" data-block-id="{{ block.id }}">
+<div
+  class="quiz-block-container"
+  data-block-id="{{ block.id }}"
+>
   <div class="question-meta">
     <small class="question-number">Question</small>
   </div>
@@ -28,6 +31,7 @@
 {% schema %}
 {
   "name": "Quiz",
+  "class": "quiz-block",
   "settings": [
     {
       "type": "text",

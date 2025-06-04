@@ -1,12 +1,16 @@
 {% comment %}
-  Shopify Section: Quiz Suggestion
+  Shopify Section: Custom Quiz Suggestion
   Description: Display quiz questions with selectable answers, each linked to a set of products. Based on answers, suggest top 3 relevant products.
 {% endcomment %}
 
-<section class="quiz-suggestion" id="quiz-suggestion-{{ section.id }}">
+<section class="quiz-suggestion page-width" id="quiz-suggestion-{{ section.id }}">
+  <button class="prev-btn ">{{ section.settings.prv_txt }}</button>
+
   <div class="quiz-container">
     {% content_for 'blocks' %}
   </div>
+
+  <button class="next-btn ">{{ section.settings.nxt_txt }}</button>
 
   <div class="suggested-products" id="suggested-products"></div>
 </section>
@@ -15,47 +19,100 @@
   class QuizSuggester {
     constructor(sectionId) {
       this.section = document.getElementById(`quiz-suggestion-${sectionId}`);
-      this.answers = [];
+      this.blocks = Array.from(this.section.querySelectorAll('.quiz-block'));
+      this.currentIndex = 0;
+
+      this.nextBtn = this.section.querySelector('.next-btn');
+      this.prevBtn = this.section.querySelector('.prev-btn');
+
       this.attachListeners();
+      this.updateButtons();
+      this.showBlock(this.currentIndex);
     }
 
     attachListeners() {
-      this.section.querySelectorAll('input[type=radio]').forEach((radio) => {
-        radio.addEventListener('change', () => this.collectAnswers());
+      this.nextBtn.addEventListener('click', () => {
+        if (this.nextBtn.dataset.action === 'submit') {
+          this.collectAnswers();
+        } else {
+          this.currentIndex = Math.min(this.blocks.length - 1, this.currentIndex + 1);
+          this.showBlock(this.currentIndex);
+        }
       });
+
+      this.prevBtn.addEventListener('click', () => {
+        this.currentIndex = Math.max(0, this.currentIndex - 1);
+        this.showBlock(this.currentIndex);
+      });
+    }
+
+    showBlock(index) {
+      this.blocks.forEach((block, i) => {
+        block.classList.remove('active');
+        block.classList.add('hidden');
+        if (i === index) {
+          block.classList.add('active');
+          block.classList.remove('hidden');
+        }
+      });
+
+      this.updateButtons();
+    }
+
+    updateButtons() {
+      // Disable Prev if at first
+      this.prevBtn.style.display = this.currentIndex === 0 ? 'none' : 'inline-block';
+
+      // If last block
+      if (this.currentIndex === this.blocks.length - 1) {
+        this.nextBtn.innerText = 'Submit';
+        this.nextBtn.dataset.action = 'submit';
+      } else {
+        this.nextBtn.innerText = '{{ section.settings.nxt_txt | escape }}';
+        this.nextBtn.dataset.action = 'next';
+      }
     }
 
     collectAnswers() {
       const radios = this.section.querySelectorAll('input[type=radio]:checked');
       let allProducts = [];
+
       radios.forEach((radio) => {
-        const productIds = radio.dataset.products.split(',');
-        allProducts.push(...productIds);
+        const ids = radio.dataset.products.split(',');
+        allProducts.push(...ids);
       });
 
       const frequency = {};
-      allProducts.forEach((id) => (frequency[id] = (frequency[id] || 0) + 1));
-      const sorted = Object.entries(frequency)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 3);
-      const topProductIds = sorted.map(([id]) => id);
+      allProducts.forEach((id) => {
+        frequency[id] = (frequency[id] || 0) + 1;
+      });
 
-      this.renderSuggestions(topProductIds);
+      const topProducts = Object.entries(frequency)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([id]) => id);
+
+      this.renderSuggestions(topProducts);
     }
 
     renderSuggestions(productIds) {
       const container = this.section.querySelector('#suggested-products');
-      container.innerHTML = '';
+      container.innerHTML = '<h3>Top Suggested Products:</h3>';
 
       productIds.forEach((id) => {
-        const productHandle = Shopify.Products[id]?.handle;
-        if (productHandle) {
-          const productCard = document.createElement('div');
-          productCard.className = 'suggested-product';
-          productCard.innerHTML = `<a href="/products/${productHandle}">View Suggested Product</a>`;
-          container.appendChild(productCard);
+        const handle = Shopify.Products?.[id]?.handle;
+        if (handle) {
+          const card = document.createElement('div');
+          card.className = 'suggested-product';
+          card.innerHTML = `<a href=\"/products/${handle}\">${handle.replace(/-/g, ' ')}</a>`;
+          container.appendChild(card);
         }
       });
+
+      // Hide quiz after submit
+      this.section.querySelector('.quiz-container').style.display = 'none';
+      this.nextBtn.style.display = 'none';
+      this.prevBtn.style.display = 'none';
     }
   }
 
@@ -65,15 +122,62 @@
 </script>
 
 <style>
+  .quiz-suggestion {
+    position: relative;
+    top: 0;
+    display: block;
+    padding: 0 5rem 5rem;
+  }
   .quiz-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    overflow: hidden;
     gap: 2rem;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
   }
-  .quiz-block {
-    border: 1px solid #ccc;
-    padding: 1rem;
+
+  .next-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 5rem;
+    padding: 1rem 2rem;
+    border: none;
     border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .prev-btn {
+    position: absolute;
+    bottom: 1rem;
+    left: 5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .quiz-block {
+    flex: 0 0 100%;
+    max-width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    transform: translateX(30px);
+  }
+
+  .quiz-block.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .quiz-block.hidden {
+    opacity: 0;
+    pointer-events: none;
   }
   .question-number {
     color: #666;
@@ -116,10 +220,39 @@
 {% schema %}
 {
   "name": "Quiz Suggestion",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "color-scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "nxt_txt",
+      "label": "Next Button Text",
+      "default": "Next"
+    },
+    {
+      "type": "text",
+      "id": "prv_txt",
+      "label": "Previous Button Text",
+      "default": "Previous"
+    },
+    {
+      "type": "text",
+      "id": "quiz_title",
+      "label": "Quiz Title",
+      "default": "Find Your Perfect Product"
+    }
+  ],
   "blocks": [
     {
-      "type": "@theme"
+      "type": "quiz"
     }
   ],
   "presets": [
