@@ -1,0 +1,98 @@
+<div class="quiz-block" data-block-id="{{ block.id }}">
+  <div class="question-meta">
+    <small class="question-number">Question</small>
+  </div>
+  <div class="question-text" style="font-size: {{ block.settings.question_font_size }}px">
+    {{ block.settings.question_text }}
+  </div>
+  <div class="options">
+    {% for i in (1..4) %}
+      {% assign option_txt = 'option_' | append: i %}
+      {% assign products = 'products_option_' | append: i %}
+      <label class="option">
+        <input
+          type="radio"
+          name="answer_{{ block.id }}"
+          value="{{ i }}"
+          data-products="{{ block.settings[products] | map: 'id' | join: ',' }}"
+          {% if forloop.first %}
+            checked
+          {% endif %}
+        >
+        <span>{{ block.settings[option_txt] }}</span>
+      </label>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Quiz",
+  "settings": [
+    {
+      "type": "text",
+      "id": "question_text",
+      "label": "Question",
+      "default": "Question"
+    },
+    {
+      "type": "range",
+      "id": "question_font_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 18,
+      "label": "Question Font Size (px)"
+    },
+    {
+      "type": "text",
+      "id": "option_1",
+      "label": "Option 1 Label",
+      "default": "Option 1"
+    },
+    {
+      "type": "product_list",
+      "id": "products_option_1",
+      "label": "Products for Option 1"
+    },
+    {
+      "type": "text",
+      "id": "option_2",
+      "label": "Option 2 Label",
+      "default": "Option 2"
+    },
+    {
+      "type": "product_list",
+      "id": "products_option_2",
+      "label": "Products for Option 2"
+    },
+    {
+      "type": "text",
+      "id": "option_3",
+      "label": "Option 3 Label",
+      "default": "Option 3"
+    },
+    {
+      "type": "product_list",
+      "id": "products_option_3",
+      "label": "Products for Option 3"
+    },
+    {
+      "type": "text",
+      "id": "option_4",
+      "label": "Option 4 Label",
+      "default": "Option 4"
+    },
+    {
+      "type": "product_list",
+      "id": "products_option_4",
+      "label": "Products for Option 4"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Block"
+    }
+  ]
+}
+{% endschema %}

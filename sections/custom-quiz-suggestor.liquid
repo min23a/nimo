@@ -1,0 +1,131 @@
+{% comment %}
+  Shopify Section: Quiz Suggestion
+  Description: Display quiz questions with selectable answers, each linked to a set of products. Based on answers, suggest top 3 relevant products.
+{% endcomment %}
+
+<section class="quiz-suggestion" id="quiz-suggestion-{{ section.id }}">
+  <div class="quiz-container">
+    {% content_for 'blocks' %}
+  </div>
+
+  <div class="suggested-products" id="suggested-products"></div>
+</section>
+
+<script>
+  class QuizSuggester {
+    constructor(sectionId) {
+      this.section = document.getElementById(`quiz-suggestion-${sectionId}`);
+      this.answers = [];
+      this.attachListeners();
+    }
+
+    attachListeners() {
+      this.section.querySelectorAll('input[type=radio]').forEach((radio) => {
+        radio.addEventListener('change', () => this.collectAnswers());
+      });
+    }
+
+    collectAnswers() {
+      const radios = this.section.querySelectorAll('input[type=radio]:checked');
+      let allProducts = [];
+      radios.forEach((radio) => {
+        const productIds = radio.dataset.products.split(',');
+        allProducts.push(...productIds);
+      });
+
+      const frequency = {};
+      allProducts.forEach((id) => (frequency[id] = (frequency[id] || 0) + 1));
+      const sorted = Object.entries(frequency)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3);
+      const topProductIds = sorted.map(([id]) => id);
+
+      this.renderSuggestions(topProductIds);
+    }
+
+    renderSuggestions(productIds) {
+      const container = this.section.querySelector('#suggested-products');
+      container.innerHTML = '';
+
+      productIds.forEach((id) => {
+        const productHandle = Shopify.Products[id]?.handle;
+        if (productHandle) {
+          const productCard = document.createElement('div');
+          productCard.className = 'suggested-product';
+          productCard.innerHTML = `<a href="/products/${productHandle}">View Suggested Product</a>`;
+          container.appendChild(productCard);
+        }
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new QuizSuggester('{{ section.id }}');
+  });
+</script>
+
+<style>
+  .quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .quiz-block {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  .question-number {
+    color: #666;
+    font-size: 12px;
+  }
+  .question-text {
+    margin: 0.5rem 0;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  .suggested-products {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .suggested-product a {
+    text-decoration: none;
+    color: #0077cc;
+  }
+  @media (max-width: 768px) {
+    .quiz-container {
+      gap: 1.5rem;
+    }
+    .quiz-block {
+      padding: 0.75rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Quiz Suggestion",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "@theme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz Suggestion"
+    }
+  ]
+}
+{% endschema %}
