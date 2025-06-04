@@ -273,6 +273,69 @@
         "timeline_gHiR4c"
       ],
       "settings": {}
+    },
+    "custom_quiz_suggestor_Y3gRTM": {
+      "type": "custom-quiz-suggestor",
+      "blocks": {
+        "quiz_9FHFRp": {
+          "type": "quiz",
+          "name": "Quiz Block",
+          "settings": {
+            "question_text": "Question",
+            "question_font_size": 18,
+            "option_1": "Option 1",
+            "products_option_1": [],
+            "option_2": "Option 2",
+            "products_option_2": [],
+            "option_3": "Option 3",
+            "products_option_3": [],
+            "option_4": "Option 4",
+            "products_option_4": []
+          },
+          "blocks": {}
+        },
+        "quiz_HHwaMr": {
+          "type": "quiz",
+          "name": "Quiz Block",
+          "settings": {
+            "question_text": "Question",
+            "question_font_size": 18,
+            "option_1": "Option 1",
+            "products_option_1": [],
+            "option_2": "Option 2",
+            "products_option_2": [],
+            "option_3": "Option 3",
+            "products_option_3": [],
+            "option_4": "Option 4",
+            "products_option_4": []
+          },
+          "blocks": {}
+        },
+        "quiz_474Eak": {
+          "type": "quiz",
+          "name": "Quiz Block",
+          "settings": {
+            "question_text": "Question",
+            "question_font_size": 18,
+            "option_1": "Option 1",
+            "products_option_1": [],
+            "option_2": "Option 2",
+            "products_option_2": [],
+            "option_3": "Option 3",
+            "products_option_3": [],
+            "option_4": "Option 4",
+            "products_option_4": []
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "quiz_9FHFRp",
+        "quiz_HHwaMr",
+        "quiz_474Eak"
+      ],
+      "name": "Quiz Suggestion",
+      "settings": {}
     }
   },
   "order": [
@@ -280,6 +343,7 @@
     "rich_text",
     "featured_product_GfNEBf",
     "video",
-    "custom_section_EzYR73"
+    "custom_section_EzYR73",
+    "custom_quiz_suggestor_Y3gRTM"
   ]
 }
