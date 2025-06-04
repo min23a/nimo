@@ -281,7 +281,7 @@
           "type": "quiz",
           "name": "Quiz Block",
           "settings": {
-            "question_text": "Question",
+            "question_text": "Question 2",
             "question_font_size": 18,
             "option_1": "Option 1",
             "products_option_1": [],
@@ -335,7 +335,12 @@
         "quiz_474Eak"
       ],
       "name": "Quiz Suggestion",
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "nxt_txt": "Next",
+        "prv_txt": "Previous",
+        "quiz_title": "Find Your Perfect Product"
+      }
     }
   },
   "order": [
