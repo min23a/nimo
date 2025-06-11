@@ -80,7 +80,6 @@
       radios.forEach((radio) => {
         const ids = radio.dataset.products.split(',');
         allProducts.push(...ids);
-        console.log(`Selected products for ${radio.name}:`, ids, allProducts);
       });
 
       const frequency = {};
@@ -92,6 +91,7 @@
         .sort((a, b) => b[1] - a[1])
         .slice(0, 3)
         .map(([id]) => id);
+      console.log('Top Products:', topProducts);
 
       this.renderSuggestions(topProducts);
     }
