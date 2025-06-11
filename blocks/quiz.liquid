@@ -17,7 +17,7 @@
           type="radio"
           name="answer_{{ block.id }}"
           value="{{ i }}"
-          data-products="{{ block.settings[products] | map: 'id' | join: ',' }}"
+          data-products="{{ block.settings[products].values  | map: 'id' | join: ',' }}"
           {% if forloop.first %}
             checked
           {% endif %}

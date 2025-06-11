@@ -80,6 +80,7 @@
       radios.forEach((radio) => {
         const ids = radio.dataset.products.split(',');
         allProducts.push(...ids);
+        console.log(`Selected products for ${radio.name}:`, ids, allProducts);
       });
 
       const frequency = {};
