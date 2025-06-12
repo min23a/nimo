@@ -80,7 +80,6 @@
       radios.forEach((radio) => {
         const ids = radio.dataset.products.split(',');
         allProducts.push(...ids);
-        console.log(`Selected products for ${radio.name}:`, ids, allProducts);
       });
 
       const frequency = {};
@@ -100,13 +99,17 @@
       const container = this.section.querySelector('#suggested-products');
       container.innerHTML = '<h3>Top Suggested Products:</h3>';
 
-      productIds.forEach((id) => {
-        const handle = Shopify.Products?.[id]?.handle;
+      productIds.forEach((handle) => {
+        fetch(window.Shopify.routes.root + `products/${handle}.js`)
+          .then((response) => response.json())
+          .then((product) => console.log('The title of this product is ' + product.title));
         if (handle) {
           const card = document.createElement('div');
           card.className = 'suggested-product';
           card.innerHTML = `<a href=\"/products/${handle}\">${handle.replace(/-/g, ' ')}</a>`;
           container.appendChild(card);
+        } else {
+          console.log(`Product with ID ${handle} not found.`);
         }
       });
 
