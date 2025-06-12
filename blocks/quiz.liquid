@@ -19,7 +19,7 @@
           type="radio"
           name="answer_{{ block.id }}"
           value="{{ i }}"
-          data-products="{{ product_list | map: 'id' | join: ',' }}"
+          data-products="{{ product_list | map: 'handle' | join: ',' }}"
           {% if forloop.first %}
             checked
           {% endif %}
