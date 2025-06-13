@@ -120,7 +120,6 @@
           "blocks": {
             "bulk_add_cart_btn_Dh9xeh": {
               "type": "bulk-add-cart-btn",
-              "name": "Bulk Add to Cart Button",
               "settings": {
                 "bulk-btn-text": "Buy 2, Get 10% Off",
                 "bulk-btn-quantity": 2,
@@ -131,7 +130,6 @@
             },
             "bulk_add_cart_btn_iRn4PU": {
               "type": "bulk-add-cart-btn",
-              "name": "Bulk Add to Cart Button",
               "settings": {
                 "bulk-btn-text": "Buy 3, Get 12% Off",
                 "bulk-btn-quantity": 3,
@@ -142,7 +140,6 @@
             },
             "bulk_add_cart_btn_9HWzNT": {
               "type": "bulk-add-cart-btn",
-              "name": "Bulk Add to Cart Button",
               "settings": {
                 "bulk-btn-text": "Buy 4, Get 15% Off",
                 "bulk-btn-quantity": 4,
@@ -279,16 +276,26 @@
       "blocks": {
         "quiz_9FHFRp": {
           "type": "quiz",
-          "name": "Quiz Block",
           "settings": {
-            "question_text": "Question",
+            "question_text": "Question 1",
             "question_font_size": 18,
             "option_1": "Option 1",
-            "products_option_1": [],
+            "products_option_1": [
+              "agate-wall-art-canvas",
+              "akbar-the-great-tomb-wall-art-canvas",
+              "al-khazneh-wall-art-canvas"
+            ],
             "option_2": "Option 2",
-            "products_option_2": [],
+            "products_option_2": [
+              "agate-wall-art-canvas",
+              "akbar-the-great-tomb-wall-art-canvas",
+              "banana-leaves-wall-art-canvas"
+            ],
             "option_3": "Option 3",
-            "products_option_3": [],
+            "products_option_3": [
+              "alhambra-palace-wall-art-canvas",
+              "alhambra-palace-hall-of-lions-wall-art-canvas"
+            ],
             "option_4": "Option 4",
             "products_option_4": []
           },
@@ -296,7 +303,6 @@
         },
         "quiz_HHwaMr": {
           "type": "quiz",
-          "name": "Quiz Block",
           "settings": {
             "question_text": "Question",
             "question_font_size": 18,
@@ -313,7 +319,6 @@
         },
         "quiz_474Eak": {
           "type": "quiz",
-          "name": "Quiz Block",
           "settings": {
             "question_text": "Question",
             "question_font_size": 18,
@@ -334,8 +339,12 @@
         "quiz_HHwaMr",
         "quiz_474Eak"
       ],
-      "name": "Quiz Suggestion",
-      "settings": {}
+      "settings": {
+        "color_scheme": "",
+        "nxt_txt": "Next",
+        "prv_txt": "Previous",
+        "quiz_title": "Find Your Perfect Product"
+      }
     }
   },
   "order": [
